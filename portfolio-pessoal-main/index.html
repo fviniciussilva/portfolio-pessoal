@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fernando Vinícius | ADS · Python · Java · Cybersecurity</title>
+    
+    <!-- SEO -->
+    <meta name="description" content="Fernando Vinícius — estudante ADS 4º semestre, pai, entregador e desenvolvedor Python/Java com mais de 10 anos de experiência em hardware. Python, Java POO, JavaScript DOM, Cybersecurity (Google), Hermes Agent CLI." />
+    <meta name="keywords" content="Fernando Vinícius, ADS, Python, Java, JavaScript, Streamlit, Pygame, Cybersecurity, Google Cybersecurity, Hermes Agent, Suporte N2, Dev Jr, Estágio TI, Anhanguera" />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Fernando Vinícius | ADS · Python · Java · Cybersecurity" />
+    <meta property="og:description" content="Pai, entregador e estudante de ADS. 10+ anos em hardware. Python, Java POO, JavaScript DOM, Google Cybersecurity (em curso). Projetos reais entregues." />
+    <meta property="og:image" content="images/eu.png" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    
+    <!-- Style local -->
+    <link rel="stylesheet" href="style.css" />
+    
+    <!-- Custom styles inline -->
+    <style>
+        :root {
+            --fs-hero: clamp(2.4rem, 5vw + 0.8rem, 4.6rem);
+            --fs-h2: clamp(1.6rem, 2.4vw + 0.6rem, 2.4rem);
+            --fs-body: clamp(1rem, 0.4vw + 0.85rem, 1.1rem);
+            --fs-eyebrow: clamp(0.7rem, 0.3vw + 0.6rem, 0.85rem);
+            --space-section: clamp(3rem, 6vw + 1rem, 6.5rem);
+        }
+        
+        html {
+            scroll-padding-top: 6rem;
+        }
+        
+        .fs-hero { font-size: var(--fs-hero); }
+        .fs-h2 { font-size: var(--fs-h2); }
+        .fs-body { font-size: var(--fs-body); }
+        .fs-eyebrow { font-size: var(--fs-eyebrow); }
+        .py-fluid { padding-top: var(--space-section); padding-bottom: var(--space-section); }
+        
+        /* Gradient border effect */
+        .gradient-border {
+            position: relative;
+            border-radius: 1rem;
+            background: var(--bg-glass);
+            backdrop-filter: blur(14px) saturate(180%);
+            -webkit-backdrop-filter: blur(14px) saturate(180%);
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent-magenta));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#3a3939 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        
+        /* Neon glow on hover */
+        .neon-glow {
+            transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .neon-glow:hover {
+            border-color: var(--border-hover);
+            box-shadow: 0 0 30px -8px rgba(56, 189, 248, 0.4), 0 18px 50px rgba(56, 189, 248, 0.18);
+            transform: translateY(-4px);
+        }
+        
+        /* Skill card accent */
+        .skill-accent-python { --accent: #38bdf8; }
+        .skill-accent-java { --accent: #e0a000; }
+        .skill-accent-web { --accent: #38bdf8; }
+        .skill-accent-cyber { --accent: #c084fc; }
+        .skill-accent-ai { --accent: #f472b6; }
+        .skill-accent-git { --accent: #38bdf8; }
+        
+        /* Schedule grid styling */
+        .schedule-row {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        @media (max-width: 640px) {
+            .schedule-row {
+                grid-template-columns: 1fr;
+                gap: 0.25rem;
+            }
+        }
+        
+        /* Project card gradient header */
+        .project-header {
+            height: 180px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(192, 132, 252, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body class="antialiased bg-[#0b0e17] text-slate-100">
+
+    <!-- ============================================================
+         HEADER / NAVBAR FIXA
+         ============================================================ -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 py-3 sm:py-4">
+        <nav class="max-w-6xl mx-auto glass rounded-2xl px-4 sm:px-6 py-2.5 sm:py-3 flex justify-between items-center shadow-2xl border border-sky-500/20 bg-[#11141f]/80 backdrop-blur-md">
+            <!-- Logo -->
+            <a href="#" class="text-xl font-bold tracking-tighter gradient-text font-mono">
+                FV.DEV
+            </a>
+            
+            <!-- Mobile menu button -->
+            <button id="menu-btn" class="md:hidden text-2xl text-slate-300 hover:text-sky-400 transition-colors" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Mobile/desktop menu -->
+            <ul id="mobile-menu" class="hidden md:flex flex-col md:flex-row items-center md:space-x-8 space-y-5 md:space-y-0 text-sm font-medium text-slate-400 absolute md:static top-20 left-4 right-4 bg-[#11141f]/95 md:bg-transparent rounded-2xl p-6 md:p-0 shadow-2xl md:shadow-none border border-sky-500/10 backdrop-blur-md">
+                <li><a href="#sobre" class="hover:text-sky-400 transition-colors">SOBRE</a></li>
+                <li><a href="#historia" class="hover:text-sky-400 transition-colors">QUEM SOU</a></li>
+                <li><a href="#habilidades" class="hover:text-sky-400 transition-colors">COMPETÊNCIAS</a></li>
+                <li><a href="#projetos" class="hover:text-sky-400 transition-colors">PROJETOS</a></li>
+                <li><a href="#grade" class="hover:text-sky-400 transition-colors">FACULDADE</a></li>
+                <li><a href="#lab-academico" class="hover:text-sky-400 transition-colors">LAB ADS</a></li>
+                <li><a href="#contato" class="hover:text-sky-400 transition-colors">CONTATO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ============================================================
+         MAIN CONTENT
+         ============================================================ -->
+    <main class="max-w-6xl mx-auto px-5 sm:px-6">
+
+        <!-- ============================================================
+             HERO — Identidade + resumo executivo
+             ============================================================ -->
+        <section id="sobre" class="min-h-screen flex flex-col lg:flex-row items-center justify-center pt-28 gap-12 lg:gap-16 reveal">
+            <!-- Texto -->
+            <div class="flex-1 text-center lg:text-left reveal">
+                <!-- Eyebrow -->
+                <span class="fs-eyebrow inline-block text-sky-400 font-semibold uppercase tracking-[3px] mb-3">
+                    ADS · Python · Java · Cybersecurity
+                </span>
+
+                <!-- Nome -->
+                <h1 class="fs-hero font-extrabold leading-tight mb-5">
+                    Fernando
+                    <span class="gradient-text"> Vinícius </span>
+                </h1>
+
+                <!-- Subtítulo -->
+                <p class="fs-body text-slate-400 leading-relaxed max-w-2xl mb-8">
+                    Estudante de
+                    <strong class="text-slate-200">Análise e Desenvolvimento de Sistemas
+                        (4º semestre)</strong>
+                    na Anhanguera (Vila Mariana), certificado pelo
+                    <strong class="text-slate-200">Santander Open Academy — Python</strong>.
+                    Mais de 10 anos de experiência prática em manutenção de hardware,
+                    com uso diário de Python, Java POO, JavaScript DOM, Streamlit,
+                    Pygame e Google Cybersecurity em andamento.
+                </p>
+
+                <!-- Tags de posição -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="tech-tag">🎯 Dev Jr / Suporte N2 / N3 / Estágio TI</span>
+                    <span class="tech-tag border-emerald-500/30 text-emerald-300 bg-emerald-500/10">🐍 Python (Santander Academy · Concluído)</span>
+                    <span class="tech-tag">☕ Java POO</span>
+                    <span class="tech-tag">🌐 JavaScript DOM</span>
+                    <span class="tech-tag">🖥️ Hardware 10+ anos</span>
+                    <span class="tech-tag">🔐 Google Cybersecurity (Coursera)</span>
+                    <span class="tech-tag">🤖 Hermes Agent CLI</span>
+                </div>
+
+                <!-- CTAs -->
+                <div class="flex flex-wrap justify-center lg:justify-start gap-4 mt-8">
+                    <a href="#historia" class="btn-primary">
+                        <i class="fa-solid fa-user"></i>
+                        Quem Sou
+                    </a>
+                    <a href="#projetos" class="btn-primary">
+                        <i class="fa-solid fa-code"></i>
+                        Ver Projetos
+                    </a>
+                    <a href="curriculo_fernando.pdf" download class="btn-ghost">
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                        Baixar Currículo
+                    </a>
+                </div>
+
+                <!-- Estatísticas -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-5 mt-12">
+                    <div class="glass rounded-2xl p-5 text-center md:text-left">
+                        <h2 class="text-3xl md:text-4xl font-black text-sky-400">10+</h2>
+                        <p class="text-slate-500 text-sm mt-1">Anos em Hardware</p>
+                    </div>
+                    <div class="glass rounded-2xl p-5 text-center md:text-left">
+                        <h2 class="text-3xl md:text-4xl font-black text-sky-400">ADS</h2>
+                        <p class="text-slate-500 text-sm mt-1">4º semestre · Anhanguera</p>
+                    </div>
+                    <div class="glass rounded-2xl p-5 text-center md:text-left">
+                        <h2 class="text-3xl md:text-4xl font-black text-sky-400">4</h2>
+                        <p class="text-slate-500 text-sm mt-1">Linguagens principais</p>
+                    </div>
+                    <div class="glass rounded-2xl p-5 text-center md:text-left">
+                        <h2 class="text-3xl md:text-4xl font-black text-sky-400">Git/GitHub</h2>
+                        <p class="text-slate-500 text-sm mt-1">IA assistida + Vercel</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avatar -->
+            <div class="flex-1 flex justify-center reveal">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-sky-500/30 rounded-full blur-3xl opacity-20"></div>
+                    <img
+                        src="images/eu.png"
+                        alt="Fernando Vinícius — Desenvolvedor ADS"
+                        class="relative w-60 md:w-[340px] rounded-full border-2 border-sky-500/50 shadow-2xl"
+                        loading="eager"
+                    />
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SEÇÃO "QUEM É O FERNANDO" — História & Resiliência
+             ============================================================ -->
+        <section id="historia" class="py-fluid reveal">
+            <div class="text-center mb-10 sm:mb-12">
+                <span class="fs-eyebrow text-violet-400 font-semibold uppercase tracking-[3px] block mb-3">
+                    A história por trás do código
+                </span>
+                <h2 class="fs-h2 font-bold text-slate-100">
+                    Quem é o Fernando
+                </h2>
+                <p class="fs-body text-slate-500 max-w-2xl mx-auto mt-3">
+                    A disciplina da rua, a garra de pai e a curiosidade técnica que vão além do teoria.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Coluna esquerda: história -->
+                <div class="glass rounded-2xl p-6 sm:p-8 border border-sky-500/10 neon-glow">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-sky-500/15 flex items-center justify-center text-sky-400">
+                            <i class="fas fa-life-ring text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-100">Disciplina & Garra</h3>
+                            <p class="text-sm text-slate-500">Pai, entregador e estudante — todos os dias</p>
+                        </div>
+                    </div>
+
+                    <p class="fs-body text-slate-400 leading-relaxed mb-6">
+                        Sou pai de família (esposa + 2 filhos), residente em Cambuci/Vila Buarque, SP.
+                    Concílio diariamente o trabalho na rua como entregador (iFood e logística própria)
+                    das 8h às 12h com a faculdade de ADS no turno da manhã
+                    das 08h20 às 10h00 na Anhanguera Vila Mariana.
+                    </p>
+
+                    <p class="fs-body text-slate-400 leading-relaxed mb-6">
+                        Essa rotina não é fácil — mas é justamente nela que monto minha disciplina.
+                        Aprendo na experimentação: formulando hipóteses, testando, identificando o erro,
+                        corrigindo e entregando a solução funcionando em produção.
+                        Essa postura de resolução prática eu levo para todo código que escrevo.
+                    </p>
+
+                    <!-- Skills highlights -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="glass rounded-xl p-4 border border-sky-500/10">
+                            <div class="text-sky-400 mb-2">
+                                <i class="fas fa-tools text-lg"></i>
+                            </div>
+                            <h4 class="text-sm font-bold text-slate-100 mb-1">Hardware & Manutenção</h4>
+                            <p class="text-xs text-slate-500">10+ anos em reparo de placas, montagem, diagnóstico de bancada, smartphones e sistemas móveis. Experiência com Soluções SP.</p>
+                        </div>
+                        <div class="glass rounded-xl p-4 border border-sky-500/10">
+                            <div class="text-violet-400 mb-2">
+                                <i class="fas fa-video text-lg"></i>
+                            </div>
+                            <h4 class="text-sm font-bold text-slate-100 mb-1">Mídia & IA</h4>
+                            <p class="text-xs text-slate-500">Produção de vídeos de marketing com IA (Veo 3 + CapCut). Edição, coragem criativa e entrega rápida para clientes.</p>
+                        </div>
+                    </div>
+
+                    <!-- CTA interno -->
+                    <div class="mt-6 pt-4 border-t border-sky-500/10">
+                        <a href="#habilidades" class="btn-ghost text-sm inline-flex items-center gap-2">
+                            <i class="fa-solid fa-arrow-right"></i>
+                            Ver competências técnicas
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Coluna direita: rotina -->
+                <div class="glass rounded-2xl p-6 sm:p-8 border border-violet-500/10 neon-glow">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-violet-500/15 flex items-center justify-center text-violet-400">
+                            <i class="fas fa-clock text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-100">Rotina Real</h3>
+                            <p class="text-sm text-slate-500">Como eu organizo tempo e entrega</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline -->
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-sky-400 mt-1.5 flex-shrink-0"></div>
+                            <div>
+                                <p class="text-sm font-semibold text-slate-100">08h20 – 10h00  |  Faculdade ADS</p>
+                                <p class="text-xs text-slate-500">Anhanguera Vila Mariana — 4º semestre. Aula de manhã, matérias técnicas.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-emerald-400 mt-1.5 flex-shrink-0"></div>
+                            <div>
+                                <p class="text-sm font-semibold text-slate-100">12h – 14h  |  Almoço & Descanso</p>
+                                <p class="text-xs text-slate-500">Hora de recarregar. Família, refeição, reorganização do dia.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-violet-400 mt-1.5 flex-shrink-0"></div>
+                            <div>
+                                <p class="text-sm font-semibold text-slate-100">14h – 18h  |  Entregas & Trabalho</p>
+                                <p class="text-xs text-slate-500">iFood e entregas próprias. Experiência de rua, organização e resiliência.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-pink-400 mt-1.5 flex-shrink-0"></div>
+                            <div>
+                                <p class="text-sm font-semibold text-slate-100">18h – 22h  |  Estudos & Código</p>
+                                <p class="text-xs text-slate-500">Python, Java POO, JavaScript DOM, cybersecurity. Projetos, labs e Coursera.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-sky-400 mt-1.5 flex-shrink-0"></div>
+                            <div>
+                                <p class="text-sm font-semibold text-slate-100">22h – 23h  |  Revisão & Planejamento</p>
+                                <p class="text-xs text-slate-500">Git/GitHub, commits, planejamento do próximo dia. Descanso.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frase de impacto -->
+                    <div class="mt-6 pt-4 border-t border-violet-500/10">
+                        <p class="text-sm text-slate-400 italic">
+                            <strong class="text-slate-200">"Não é sobre ter tempo — é sobre fazer tempo.
+                                Cada dia é uma decisão: entregar ou desistir. Eu escolho entregar."</strong>
+                        </p>
+                        <p class="text-xs text-slate-600 mt-2">— Fernando Vinícius</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SEÇÃO 1: COMPETÊNCIAS TÉCNICAS (6 pilares)
+             ============================================================ -->
+        <section id="habilidades" class="py-fluid reveal">
+            <div class="text-center mb-10 sm:mb-12">
+                <span class="fs-eyebrow text-sky-400 font-semibold uppercase tracking-[3px] block mb-3">
+                    O que eu entrego
+                </span>
+                <h2 class="fs-h2 font-bold text-slate-100">
+                    Competências Técnicas
+                </h2>
+                <p class="fs-body text-slate-500 max-w-xl mx-auto mt-3">
+                    Habilidades reais, aplicadas a projetos reais — não apenas teoria acadêmica.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Pilar 1: Python & Automação -->
+                <div class="skill-accent-python glass rounded-2xl p-6 sm:p-7 border border-sky-500/10 neon-glow">
+                    <div class="text-sky-400 mb-5">
+                        <i class="fab fa-python text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-100 mb-3">Python & Automação</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                        Uso diário em projetos reais — scripts de automação, Flet (apps mobile),
+                        Streamlit (dashboards e bots), consumo de APIs. Aprofundamento e certificação concluída no
+                        <strong class="text-emerald-300">Santander Open Academy — Python</strong>.
+                        Entrega funcional: scripts que rodam, bots que respondem, apps que resolvem.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag border-emerald-500/30 text-emerald-300 bg-emerald-500/10">Santander Open Academy</span>
+                        <span class="tech-tag">Flet</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">APIs</span>
+                        <span class="tech-tag">Automação</span>
+                    </div>
+                </div>
+
+                <!-- Pilar 2: Java & POO -->
+                <div class="skill-accent-java glass rounded-2xl p-6 sm:p-7 border border-sky-500/10 neon-glow">
+                    <div class="text-yellow-500 mb-5">
+                        <i class="fab fa-java text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-100 mb-3">Java & POO</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                        Programação Orientada a Objetos na faculdade — classes, objetos,
+                        encapsulamento, herança, polimorfismo. Projeto oo02 com validações de
+                        CPF/CNPJ. NetBeans + Java SE. Evolução constante na lógica de programação
+                        e estruturação de código reutilizável.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">POO</span>
+                        <span class="tech-tag">NetBeans</span>
+                        <span class="tech-tag">CPF/CNPJ</span>
+                        <span class="tech-tag">Algoritmos</span>
+                    </div>
+                </div>
+
+                <!-- Pilar 3: Web & Front-end -->
+                <div class="skill-accent-web glass rounded-2xl p-6 sm:p-7 border border-sky-500/10 neon-glow">
+                    <div class="text-sky-400 mb-5">
+                        <i class="fab fa-js text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-100 mb-3">Web & Front-end</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                        HTML5 semântico, CSS3 moderno, Tailwind CSS com responsividade avançada
+                        (clamp() para tipografia fluida), JavaScript DOM interativo.
+                        Interface Interativa — projeto que demonstra manipulação dinâmica do DOM,
+                        eventos, transições e interação usuário-sistema. HTML + Tailwind CSS para
+                        interfaces modernas, responsivas e acessíveis.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">JavaScript DOM</span>
+                        <span class="tech-tag">clamp()</span>
+                        <span class="tech-tag">Responsivo</span>
+                    </div>
+                </div>
+
+                <!-- Pilar 4: Cybersecurity & Hardware -->
+                <div class="skill-accent-cyber glass rounded-2xl p-6 sm:p-7 border border-sky-500/10 neon-glow">
+                    <div class="text-violet-400 mb-5">
+                        <i class="fas fa-shield-halved text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-100 mb-3">Cybersecurity & Hardware</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                        Formação em andamento no
+                        <strong class="text-violet-300">Google Cybersecurity Professional Certificate
+                            (Coursera)</strong>
+                        unida à vivência prática de 10+ anos em hardware. Experiência real em análise de
+                        integridade de firmware, análise de vulnerabilidades e bypass de segurança em
+                        dispositivos móveis (Android/iOS). Diagnóstico de bancada, reparo de placas,
+                        smartphones e sistemas móveis — base técnica para suporte N2/N3.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-tag">Google Cybersecurity</span>
+                        <span class="tech-tag">Coursera</span>
+                        <span class="tech-tag">Firmware</span>
+                        <span class="tech-tag">Android/iOS</span>
+                        <span class="tech-tag">Hardware 10+ anos</span>
+                        <span class="tech-tag">Suporte N2/N3</span>
+                    </div>
+                </div>
+
+                <!-- Pilar 5: Agentes de IA & CLI -->
+                <div class="skill-accent-ai glass rounded-2xl p-6 sm:p-7 border border-sky-500/10 neon-glow">
+                    <div class="text-pink-400 mb-5">
+                        <i class="fas fa-robot text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-100 mb-3">Agentes de IA & CLI</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                        Orquestração do framework
+                        <strong class="text-pink-300">Hermes Agent via terminal</strong>
+                        para automação de ambiente, scaffolding de projetos do zero e execução de
+                        scripts de sistema. AI-Driven Development: uso de LLMs e agents para
+                        configuração de ambientes, geração de boilerplates, automação de tarefas
+                        operacionais e produtividade no dia a dia do desenvolvimento.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-tag">Hermes Agent</span>
+                        <span class="tech-tag">CLI / Terminal</span>
+                        <span class="tech-tag">Scaffolding</span>
+                        <span class="tech-tag">Automação de Ambiente</span>
+                        <span class="tech-tag">AI-Driven Dev</span>
+                    </div>
+                </div>
+
+                <!-- Pilar 6: Git, GitHub & Deploy -->
+                <div class="skill-accent-git glass rounded-2xl p-6 sm:p-7 border border-sky-500/10 neon-glow">
+                    <div class="text-sky-400 mb-5">
+                        <i class="fab fa-github text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-100 mb-3">Git, GitHub & Deploy</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                        Versionamento diário com Git/GitHub — controle de branches, fluxo de trabalho
+                        assistido por IA, commits estruturados, código versionado. Deploy de projetos
+                        web na Vercel. GitHub público como portfólio vivo de evolução técnica.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-tag">Git</span>
+                        <span class="tech-tag">GitHub</span>
+                        <span class="tech-tag">Vercel</span>
+                        <span class="tech-tag">Deploy</span>
+                        <span class="tech-tag">IA Assistida</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destaques de certificações -->
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Certificação 1: Santander Open Academy Python -->
+                <div class="glass rounded-2xl p-5 sm:p-6 border border-emerald-500/30 bg-emerald-500/5 reveal flex items-center gap-4">
+                    <i class="fab fa-python text-3xl text-emerald-400"></i>
+                    <div>
+                        <strong class="text-slate-100 block">Santander Open Academy — Python</strong>
+                        <span class="text-xs text-emerald-300 font-semibold uppercase tracking-wider block mb-1">
+                            <i class="fa-solid fa-circle-check mr-1"></i>Concluído (18/09/2026 · 8h)
+                        </span>
+                        <span class="text-xs text-slate-400">
+                            Aprofundamento na linguagem, estruturas de dados e resolução prática de problemas.
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Certificação 2: Google Cybersecurity -->
+                <div class="glass rounded-2xl p-5 sm:p-6 border border-violet-500/20 bg-violet-500/5 reveal flex items-center gap-4">
+                    <i class="fab fa-certificate text-3xl text-violet-400"></i>
+                    <div>
+                        <strong class="text-slate-100 block">Google Cybersecurity Professional Certificate</strong>
+                        <span class="text-xs text-violet-300 font-semibold uppercase tracking-wider block mb-1">
+                            Em andamento (Coursera)
+                        </span>
+                        <span class="text-xs text-slate-400">
+                            Complementando a formação em ADS com foco em segurança da informação e redes.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SEÇÃO 2: PROJETOS EM DESTAQUE (5 projetos com detalhes)
+             ============================================================ -->
+        <section id="projetos" class="py-fluid reveal">
+            <div class="text-center mb-10 sm:mb-12">
+                <span class="fs-eyebrow text-sky-400 font-semibold uppercase tracking-[3px] block mb-3">
+                    O que foi criado
+                </span>
+                <h2 class="fs-h2 font-bold text-slate-100">
+                    Projetos em Destaque
+                </h2>
+                <p class="fs-body text-slate-500 max-w-xl mx-auto mt-3">
+                    Trabalhos reais — da inteligência de delivery à entretenimento, passando por prototipagem UI/UX,
+                    serviço técnico e front-end interativo.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+                <!-- PROJETO 1 — MotoFlex (UI/UX & Prototipagem) -->
+                <article class="glass rounded-2xl overflow-hidden border border-sky-500/20 bg-[#11141f]/60 hover:border-sky-500/50 transition-all reveal col-span-1 sm:col-span-2 lg:col-span-1">
+                    <div class="project-header">
+                        <i class="fa-solid fa-motorcycle text-6xl text-sky-400"></i>
+                    </div>
+                    <div class="p-6 sm:p-7 flex flex-col flex-1">
+                        <span class="tech-tag w-fit text-sky-300 border-sky-500/30 bg-sky-500/10 mb-3">
+                            <i class="fa-brands fa-figma mr-1"></i>
+                            UI/UX · Figma · Prototipagem
+                        </span>
+                        <h3 class="text-xl font-bold text-slate-100 mb-2">
+                            MotoFlex — Gestão de Entregas
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            Protótipo interativo de alta fidelidade desenvolvido no Figma para otimização de rotas e gestão de entregas.
+                            Desenvolvido para demonstrar habilidades em conceitos de UI/UX, arquitetura de informação e design de experiência centrada no usuário.
+                        </p>
+                        <p class="text-xs text-slate-600 mb-4 bg-[#0b0e17] rounded-lg p-3 border border-sky-500/10">
+                            <span class="text-sky-400 font-semibold">Técnico:</span>
+                            Wireframing, Prototipagem Interativa, UI/UX, Design System, Mapeamento de Jornada, Figma.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mt-auto pt-3">
+                            <a href="https://www.figma.com/design/AfkLuGa7LXcvQrXfyYhS69/PROJETO-MOTOFLEX?node-id=0-1&t=QsLuPHZq3dcBJcXh-1" target="_blank" rel="noopener noreferrer" class="btn-ghost text-sm py-2 px-4 border-sky-500/50 text-sky-300 hover:bg-sky-500 hover:text-[#0b0e17]">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                Ver no Figma
+                            </a>
+                            <a href="https://github.com/fviniciussilva/motoflex-ui-ux" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 text-sm font-medium transition-colors">
+                                <i class="fa-brands fa-github"></i>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PROJETO 2 — Solutech Bot / Açaí Flow -->
+                <article class="glass rounded-2xl overflow-hidden border border-emerald-500/10 bg-[#11141f]/60 hover:border-emerald-500/40 transition-all reveal">
+                    <div class="h-44 overflow-hidden">
+                        <img src="images/bot.png" alt="Solutech Bot — Central inteligente de delivery" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-6 sm:p-7 flex flex-col flex-1">
+                        <span class="tech-tag w-fit text-emerald-300 border-emerald-500/30 bg-emerald-500/10 mb-3">
+                            <i class="fa-solid fa-robot mr-1"></i>
+                            Python · Streamlit · Flet
+                        </span>
+                        <h3 class="text-xl font-bold text-slate-100 mb-2">
+                            Solutech Bot / Açaí Flow
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            Central inteligente e aplicativo de delivery em Python —
+                            consulta de peças, compatibilidade de telas, catálogo de produtos,
+                            carrinho de compras, cálculo dinâmico de total e controle de pedidos.
+                            Integração de pagamentos via QR Code Pix dinâmico com geração de
+                            payload EMV / BR Code e checksum CRC16 para autenticação.
+                        </p>
+                        <p class="text-xs text-slate-600 mb-4 bg-[#0b0e17] rounded-lg p-3 border border-sky-500/10">
+                            <span class="text-sky-400 font-semibold">Técnico:</span>
+                            Python, Streamlit, Flet, QR Code Pix EMV/CRC16, catálogo, carrinho, pedidos.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mt-auto pt-3">
+                            <a href="https://solucell-bot.streamlit.app/" target="_blank" rel="noopener noreferrer" class="btn-ghost text-sm py-2 px-4 border-emerald-500/50 text-emerald-300 hover:bg-emerald-500 hover:text-[#0b0e17]">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                Acessar Bot
+                            </a>
+                            <a href="https://github.com/fviniciussilva/solutech-bot" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 text-sm font-medium transition-colors">
+                                <i class="fa-brands fa-github"></i>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PROJETO 3 — Soluções SP / Solucell SP -->
+                <article class="glass rounded-2xl overflow-hidden border border-sky-500/10 bg-[#11141f]/60 hover:border-sky-500/40 transition-all reveal">
+                    <div class="h-44 overflow-hidden">
+                        <img src="images/delivery.jpg" alt="Soluções SP — Serviços técnicos de hardware" class="w-full h-full object-cover opacity-85" loading="lazy" />
+                    </div>
+                    <div class="p-6 sm:p-7 flex flex-col flex-1">
+                        <span class="tech-tag w-fit text-sky-300 border-sky-500/30 bg-sky-500/10 mb-3">
+                            <i class="fa-solid fa-store mr-1"></i>
+                            Site Comercial & UX
+                        </span>
+                        <h3 class="text-xl font-bold text-slate-100 mb-2">
+                            Soluções SP / Solucell SP
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            Ecossistema de serviços técnicos de hardware, manutenção de computadores
+                            e aparelhos móveis em São Paulo. Ecossistema de serviços: reparo de placas,
+                            diagnóstico de bancada, montagem de PCs, smartphones, desbloqueios.
+                            Site comercial com HTML, CSS e JavaScript — interface profissional,
+                            responsiva e geolocalização para melhorar a experiência do cliente.
+                        </p>
+                        <p class="text-xs text-slate-600 mb-4 bg-[#0b0e17] rounded-lg p-3 border border-sky-500/10">
+                            <span class="text-sky-400 font-semibold">Técnico:</span>
+                            HTML5, CSS3, JavaScript, geolocalização, UX/UI, serviços de hardware.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mt-auto pt-3">
+                            <a href="https://solucell-sp.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-ghost text-sm py-2 px-4">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                Acessar Site
+                            </a>
+                            <a href="https://github.com/fviniciussilva/solucell-sp" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 text-sm font-medium transition-colors">
+                                <i class="fa-brands fa-github"></i>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PROJETO 4 — Super Penalty 2026 / Corrida Urbana -->
+                <article class="glass rounded-2xl overflow-hidden border border-violet-500/10 bg-[#11141f]/60 hover:border-violet-500/40 transition-all reveal">
+                    <div class="h-44 overflow-hidden">
+                        <img src="images/penalty.png" alt="Super Penalty 2026 — Jogo arcade em Python" class="w-full h-full object-cover opacity-85" loading="lazy" />
+                    </div>
+                    <div class="p-6 sm:p-7 flex flex-col flex-1">
+                        <span class="tech-tag w-fit text-violet-300 border-violet-500/30 bg-violet-500/10 mb-3">
+                            <i class="fa-solid fa-gamepad mr-1"></i>
+                            Jogo em Python · Pygame
+                        </span>
+                        <h3 class="text-xl font-bold text-slate-100 mb-2">
+                            Super Penalty 2026 / Corrida Urbana
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            Jogos interativos em Python/Pygame inspirados na vivência real do tráfego e
+                            entregas urbanas. Programação orientada a objetos, controle de estados,
+                            detecção de colisões, animações e tratamento de eventos. Arcade que
+                            traduz a experiência de rua em mecânica de jogo — velocidade, reflexos
+                            e decisão em tempo real.
+                        </p>
+                        <p class="text-xs text-slate-600 mb-4 bg-[#0b0e17] rounded-lg p-3 border border-sky-500/10">
+                            <span class="text-sky-400 font-semibold">Técnico:</span>
+                            Python, Pygame, POO, detecção de colisões, estado do jogo, animações.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mt-auto pt-3">
+                            <a href="https://github.com/fviniciussilva/super-Penalty-2026/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer" class="btn-ghost text-sm py-2 px-4 border-violet-500/50 text-violet-300 hover:bg-violet-500 hover:text-[#0b0e17]">
+                                <i class="fa-solid fa-download"></i>
+                                Baixar Executável
+                            </a>
+                            <a href="https://github.com/fviniciussilva/super-Penalty-2026" target="_blank" rel="noopener noreferrer" class="text-violet-400 hover:text-violet-300 text-sm font-medium transition-colors">
+                                <i class="fa-brands fa-github"></i>
+                                Código Fonte
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PROJETO 5 — Interface Interativa -->
+                <article class="glass rounded-2xl overflow-hidden border border-pink-500/10 bg-[#11141f]/60 hover:border-pink-500/40 transition-all reveal">
+                    <div class="h-44 overflow-hidden">
+                        <img src="images/print.jpg" alt="Interface Interativa — Manipulação de DOM" class="w-full h-full object-cover opacity-85" loading="lazy" />
+                    </div>
+                    <div class="p-6 sm:p-7 flex flex-col flex-1">
+                        <span class="tech-tag w-fit text-pink-300 border-pink-500/30 bg-pink-500/10 mb-3">
+                            <i class="fa-solid fa-cubes mr-1"></i>
+                            Front-end · JavaScript DOM
+                        </span>
+                        <h3 class="text-xl font-bold text-slate-100 mb-2">
+                            Interface Interativa
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            Aplicação web para manipulação dinâmica do DOM com JavaScript puro —
+                            elementos dinâmicos, eventos, transições, interação usuário-sistema.
+                            HTML5 + CSS3 + JavaScript sem dependências pesadas. Demonstração prática
+                            de controle do DOM, criação e manipulação de elementos em tempo real.
+                        </p>
+                        <p class="text-xs text-slate-600 mb-4 bg-[#0b0e17] rounded-lg p-3 border border-sky-500/10">
+                            <span class="text-sky-400 font-semibold">Técnico:</span>
+                            HTML5, CSS3, JavaScript DOM, manipulação de elementos, eventos, transições.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mt-auto pt-3">
+                            <a href="https://github.com/fviniciussilva/interface-interativa" target="_blank" rel="noopener noreferrer" class="btn-ghost text-sm py-2 px-4 border-pink-500/50 text-pink-300 hover:bg-pink-500 hover:text-[#0b0e17]">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                Ver no GitHub
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SEÇÃO 3: GRADE CURRICULAR (4º SEMESTRE ADS)
+             ============================================================ -->
+        <section id="grade" class="py-fluid reveal">
+            <div class="text-center mb-10 sm:mb-12">
+                <span class="fs-eyebrow text-violet-400 font-semibold uppercase tracking-[3px] block mb-3">
+                    Faculdade · ADS 4º Semestre
+                </span>
+                <h2 class="fs-h2 font-bold text-slate-100">
+                    Grade Curricular
+                </h2>
+                <p class="fs-body text-slate-500 max-w-xl mx-auto mt-3">
+                    Anhanguera Vila Mariana — turno da manhã (08h20–10h00).
+                    Disciplina, organização e entrega semanal.
+                </p>
+            </div>
+
+            <div class="glass rounded-2xl p-6 sm:p-8 border border-sky-500/10 neon-glow">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-sky-500/15 flex items-center justify-center text-sky-400">
+                        <i class="fas fa-graduation-cap text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-100">4º Semestre — Anhanguera (Vila Mariana)</h3>
+                        <p class="text-sm text-slate-500">Turno: 08h20–10h00 | Seg a Sex</p>
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <!-- Cabeçalho -->
+                    <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 pb-3 pt-3 border-b border-sky-500/10 text-xs text-slate-500 uppercase tracking-wider mb-2">
+                        <div>Matéria</div>
+                        <div class="sm:hidden">Horário</div>
+                        <div>Turno</div>
+                        <div class="hidden sm:block">Descrição</div>
+                    </div>
+
+                    <!-- Sistemas Distribuídos -->
+                    <div class="schedule-row">
+                        <div class="glass rounded-xl p-4 flex items-center gap-3 border border-sky-500/10">
+                            <i class="fas fa-network-wired text-sky-400 w-6 text-center"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-100">Sistemas Distribuídos</h4>
+                                <p class="text-xs text-slate-500">Segunda · 08h20–10h00</p>
+                            </div>
+                        </div>
+                        <div class="text-xs text-slate-600 leading-relaxed">
+                            Estudo de arquiteturas distribuídas, concorrência, tolerância a falhas,
+                            comunicação entre processos e sistemas em rede.
+                        </div>
+                    </div>
+
+                    <!-- Orientação a Objetos (Java) -->
+                    <div class="schedule-row">
+                        <div class="glass rounded-xl p-4 flex items-center gap-3 border border-yellow-500/10">
+                            <i class="fab fa-java text-yellow-500 w-6 text-center"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-100">Orientação a Objetos (Java)</h4>
+                                <p class="text-xs text-slate-500">Terça · 08h20–10h00</p>
+                            </div>
+                        </div>
+                        <div class="text-xs text-slate-600 leading-relaxed">
+                            Programação Orientada a Objetos com Java — classes, objetos, encapsulamento,
+                            herança, polimorfismo. Projeto prático: validações de CPF/CNPJ (oo02).
+                        </div>
+                    </div>
+
+                    <!-- Engenharia de Software -->
+                    <div class="schedule-row">
+                        <div class="glass rounded-xl p-4 flex items-center gap-3 border border-emerald-500/10">
+                            <i class="fas fa-flask text-emerald-400 w-6 text-center"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-100">Engenharia de Software</h4>
+                                <p class="text-xs text-slate-500">Quarta · 08h20–10h00</p>
+                            </div>
+                        </div>
+                        <div class="text-xs text-slate-600 leading-relaxed">
+                            Ciclo de vida de desenvolvimento, metodologias ágeis, modelagem,
+                            qualidade de software, testes e documentação de projetos.
+                        </div>
+                    </div>
+
+                    <!-- JavaScript -->
+                    <div class="schedule-row">
+                        <div class="schedule-row">
+                            <div class="glass rounded-xl p-4 flex items-center gap-3 border border-pink-500/10">
+                                <i class="fab fa-js text-pink-400 w-6 text-center"></i>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-100">JavaScript</h4>
+                                    <p class="text-xs text-slate-500">Quinta · 08h20–10h00</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-xs text-slate-600 leading-relaxed">
+                            JavaScript moderno — DOM, eventos, manipulação dinâmica, APIs, assincronia,
+                            interação com o navegador e desenvolvimento web front-end.
+                        </div>
+                    </div>
+
+                    <!-- Computação em Nuvem -->
+                    <div class="schedule-row">
+                        <div class="glass rounded-xl p-4 flex items-center gap-3 border border-violet-500/10">
+                            <i class="fas fa-cloud text-violet-400 w-6 text-center"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-100">Computação em Nuvem</h4>
+                                <p class="text-xs text-slate-500">Sexta · 08h20–10h00</p>
+                            </div>
+                        </div>
+                        <div class="text-xs text-slate-600 leading-relaxed">
+                            Conceitos de cloud computing — infraestrutura, serviços (IaaS, PaaS, SaaS),
+                            deploy, escalabilidade, Vercel, provedores e arquitetura em nuvem.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="mt-6 pt-4 border-t border-sky-500/10 flex flex-wrap items-center gap-4">
+                    <a href="#lab-academico" class="btn-ghost text-sm inline-flex items-center gap-2">
+                        <i class="fa-solid fa-flask"></i>
+                        Laboratório de Algoritmos & POO
+                    </a>
+                    <span class="text-xs text-slate-500">
+                        <i class="fa-regular fa-clock"></i>
+                        Matérias atualizadas semanalmente
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SEÇÃO 4: LABORATÓRIO ACADÊMICO & REPOSITÓRIOS (ADS)
+             ============================================================ -->
+        <section id="lab-academico" class="py-fluid reveal">
+            <div class="text-center mb-10 sm:mb-12">
+                <span class="fs-eyebrow text-violet-400 font-semibold uppercase tracking-[3px] block mb-3">
+                    Faculdade · Laboratório
+                </span>
+                <h2 class="fs-h2 font-bold text-slate-100">
+                    Laboratório Acadêmico & Estudos
+                </h2>
+                <p class="fs-body text-slate-500 max-w-xl mx-auto mt-3">
+                    Repositório central da Graduação em ADS e laboratórios de código — Java (POO), Python e
+                    JavaScript — demonstrando constância acadêmica e prática.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6">
+                <!-- Cartão de destaque: Repositório Mãe Graduação ADS -->
+                <article class="glass rounded-2xl p-6 sm:p-8 border border-violet-500/20 neon-glow">
+                    <div class="flex flex-wrap items-start gap-4 mb-6">
+                        <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-violet-500/15 flex items-center justify-center text-violet-400 border border-violet-500/20">
+                            <i class="fas fa-graduation-cap text-2xl"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-xl font-bold text-slate-100 mb-1">
+                                Repositório Mãe — Graduação ADS
+                            </h3>
+                            <p class="text-sm text-slate-400">
+                                Centralização de disciplinas, documentação teórica e projetos práticos do 1º ao 4º semestre na Anhanguera.
+                            </p>
+                        </div>
+                        <a href="https://github.com/fviniciussilva/GRADUACAO-ANALISE-DESENVOLVIMENTO-DE-SISTEMAS" target="_blank" rel="noopener noreferrer" class="btn-ghost text-sm py-2 px-4 border-violet-500/50 text-violet-300 hover:bg-violet-500 hover:text-[#0b0e17] whitespace-nowrap">
+                            <i class="fa-brands fa-github"></i>
+                            Ver Graduação ADS
+                        </a>
+                    </div>
+
+                    <!-- Subcartões por linguagem -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+                        <!-- Java POO -->
+                        <div class="glass rounded-xl p-4 sm:p-5 border border-sky-500/10">
+                            <div class="flex items-center gap-2 text-sky-300 mb-3">
+                                <i class="fab fa-java text-xl"></i>
+                                <span class="font-semibold text-sm uppercase tracking-wider">Java · POO</span>
+                            </div>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-3">
+                                Exercícios e projetos de Programação Orientada a Objetos — classes,
+                                encapsulamento, herança, polimorfismo. Validações de CPF/CNPJ (oo02).
+                                NetBeans + Java SE.
+                            </p>
+                            <a href="https://github.com/fviniciussilva/lab-algoritmos-poo/tree/main/java-poo" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 text-xs font-medium transition-colors inline-flex items-center gap-1">
+                                <i class="fa-solid fa-folder-open"></i>
+                                java-poo/
+                                <span class="text-slate-600">→</span>
+                            </a>
+                        </div>
+                        <!-- Python -->
+                        <div class="glass rounded-xl p-4 sm:p-5 border border-emerald-500/10">
+                            <div class="flex items-center gap-2 text-emerald-300 mb-3">
+                                <i class="fab fa-python text-xl"></i>
+                                <span class="font-semibold text-sm uppercase tracking-wider">Python</span>
+                            </div>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-3">
+                                Scripts, automações CLI, exercícios de lógica e aplicações práticas.
+                                Foco em resolução de problemas e uso real da linguagem.
+                            </p>
+                            <a href="https://github.com/fviniciussilva/lab-algoritmos-poo/tree/main/python" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 text-xs font-medium transition-colors inline-flex items-center gap-1">
+                                <i class="fa-solid fa-folder-open"></i>
+                                python/
+                                <span class="text-slate-600">→</span>
+                            </a>
+                        </div>
+                        <!-- JavaScript -->
+                        <div class="glass rounded-xl p-4 sm:p-5 border border-pink-500/10">
+                            <div class="flex items-center gap-2 text-pink-300 mb-3">
+                                <i class="fab fa-js text-xl"></i>
+                                <span class="font-semibold text-sm uppercase tracking-wider">JavaScript</span>
+                            </div>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-3">
+                                Exercícios de manipulação de DOM, eventos e front-end.
+                                Evolução no JavaScript para a web — do básico ao interativo.
+                            </p>
+                            <a href="https://github.com/fviniciussilva/lab-algoritmos-poo/tree/main/javascript" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 text-xs font-medium transition-colors inline-flex items-center gap-1">
+                                <i class="fa-solid fa-folder-open"></i>
+                                js-dom/
+                                <span class="text-slate-600">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Rodapé do cartão -->
+                    <div class="mt-6 pt-4 border-t border-sky-500/10 flex flex-wrap items-center gap-3 text-xs text-slate-500">
+                        <span class="flex items-center gap-1">
+                            <i class="fa-regular fa-calendar"></i>
+                            4º semestre · Anhanguera
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <i class="fa-regular fa-clock"></i>
+                            Atualizado regularmente
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <i class="fa-brands fa-github"></i>
+                            Repositório público no GitHub
+                        </span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SEÇÃO 5: CONTATO & CTA
+             ============================================================ -->
+        <section id="contato" class="py-fluid reveal">
+            <div class="glass rounded-2xl border border-sky-500/10 bg-[#11141f]/60 p-6 sm:p-10 md:p-14 text-center">
+                <span class="fs-eyebrow text-sky-400 font-semibold uppercase tracking-[3px] block mb-3">
+                    Conectando
+                </span>
+
+                <h2 class="fs-h2 font-bold text-slate-100 mb-3">
+                    Vamos conversar?
+                </h2>
+
+                <p class="text-slate-400 max-w-xl mx-auto mb-8 fs-body">
+                    Aberto a oportunidades em
+                    <strong class="text-slate-200">Desenvolvimento Júnior</strong>,
+                    <strong class="text-slate-200">Suporte N2 / N3</strong> e
+                    <strong class="text-slate-200">Estágio em TI/ADS</strong>.
+                    Pai, entregador e estudante — pronto para entregar.
+                </p>
+
+                <!-- Botões de ação -->
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <a href="#projetos" class="btn-primary">
+                        <i class="fa-solid fa-code"></i>
+                        Ver Projetos
+                    </a>
+                    <a href="https://wa.me/5511939432371" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: #25D366; color: #fff;">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                    <a href="curriculo_fernando.pdf" download class="btn-ghost">
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                        Baixar Currículo
+                    </a>
+                </div>
+
+                <!-- Ícones de redes -->
+                <div class="flex flex-wrap justify-center gap-4 sm:gap-5 text-xl sm:text-2xl">
+                    <a href="mailto:fv050795@gmail.com" aria-label="E-mail" class="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-xl bg-sky-500/10 border border-sky-500/20 hover:border-sky-400 hover:text-sky-300 transition-all">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/fernando-vinicius-/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-xl bg-sky-500/10 border border-sky-500/20 hover:border-sky-400 hover:text-sky-300 transition-all">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/fviniciussilva" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-xl bg-emerald-500/10 border border-emerald-500/20 hover:border-emerald-400 hover:text-emerald-300 transition-all">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://wa.me/5511939432371" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-xl bg-emerald-500/10 border border-emerald-500/20 hover:border-emerald-400 hover:text-emerald-300 transition-all">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+
+                <!-- Tech tags -->
+                <div class="mt-8 flex flex-wrap justify-center gap-2 text-xs text-slate-600">
+                    <span class="tech-tag">ADS</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Streamlit</span>
+                    <span class="tech-tag">Pygame</span>
+                    <span class="tech-tag">Git</span>
+                    <span class="tech-tag">HTML + Tailwind</span>
+                    <span class="tech-tag">Cybersecurity</span>
+                    <span class="tech-tag">Hermes Agent</span>
+                </div>
+
+                <!-- Legenda -->
+                <p class="text-xs text-slate-600 mt-6">
+                    Fernando Vinícius da Silva · São Paulo (Cambuci/Vila Buarque)
+                    <br class="sm:hidden" />
+                    <a href="https://github.com/fviniciussilva" target="_blank" rel="noopener" class="text-sky-400 hover:text-sky-300 transition-colors ml-1">
+                        GitHub →
+                    </a>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+            RODAPÉ
+            ============================================================ -->
+    <footer class="py-10 border-t border-sky-500/10 text-center">
+        <p class="text-slate-400">
+            © 2026 Fernando Vinícius da Silva
+        </p>
+        <p class="text-slate-600 text-sm mt-2">
+            Desenvolvido com HTML, CSS, JavaScript e Tailwind CSS
+            <br class="sm:hidden" />
+            <a href="https://github.com/fviniciussilva" target="_blank" rel="noopener" class="text-sky-400 hover:text-sky-300 transition-colors ml-1">
+                GitHub →
+            </a>
+        </p>
+    </footer>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>

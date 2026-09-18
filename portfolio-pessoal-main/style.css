@@ -1,0 +1,139 @@
+:root {
+  /* Paleta Dark Tech com alto contraste */
+  --primary: #38bdf8;         /* Sky Blue */
+  --secondary: #818cf8;       /* Indigo */
+  --accent-magenta: #c084fc;  /* Purple Accent */
+  
+  --bg-dark: #0b0e17;         /* Fundo escuro profundo */
+  --card-bg: rgba(17, 20, 31, 0.75); /* Fundo dos cartões escuros */
+  --border-subtle: rgba(56, 189, 248, 0.15);
+  --border-hover: rgba(56, 189, 248, 0.45);
+  
+  --fs-hero: clamp(2.4rem, 5vw + 0.8rem, 4.6rem);
+  --fs-h2: clamp(1.6rem, 2.4vw + 0.6rem, 2.4rem);
+  --fs-body: clamp(1rem, 0.4vw + 0.85rem, 1.1rem);
+  --fs-eyebrow: clamp(0.7rem, 0.3vw + 0.6rem, 0.85rem);
+  --space-section: clamp(3rem, 6vw + 1rem, 6.5rem);
+}
+
+/* Configurações Gerais */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-dark);
+  color: #f1f5f9;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--primary);
+  color: #0b0e17;
+}
+
+/* Tipografia Fluida */
+.fs-hero { font-size: var(--fs-hero); }
+.fs-h2 { font-size: var(--fs-h2); }
+.fs-body { font-size: var(--fs-body); }
+.fs-eyebrow { font-size: var(--fs-eyebrow); }
+.py-fluid { padding-top: var(--space-section); padding-bottom: var(--space-section); }
+
+/* Texto em Degradê Neon */
+.gradient-text {
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Cartões com Efeito Glassmorphism & Neon Glow */
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass:hover, .neon-glow:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.3), 0 15px 35px rgba(0, 0, 0, 0.6);
+  transform: translateY(-5px);
+}
+
+/* Botões */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #0284c7, #4f46e5);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(2, 132, 199, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(2, 132, 199, 0.5);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: #f1f5f9;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(56, 189, 248, 0.1);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Tags de Tecnologias */
+.tech-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: #7dd3fc;
+}
+
+/* Animação Flutuante para Imagens */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+#sobre img {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Animação de Scroll (Reveal) */
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
