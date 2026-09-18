@@ -14,56 +14,23 @@ html, body {
   scroll-behavior: smooth;
   scroll-padding-top: 7rem;
   overflow-x: hidden;
+  line-height: 1.6;
 }
 
-/* Espaçamento do topo para a navbar não tapar o título */
+/* Espaçamento do topo para a Hero section respirar */
 #sobre {
-  padding-top: 8rem !important;
+  padding-top: 10rem !important;
+  padding-bottom: 5rem !important;
 }
 
-/* Ajuste dos Cartões da Estatística */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 1rem;
-}
-
-/* Tabela da Grade Curricular */
-.schedule-row {
-  display: flex !important;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(56, 189, 248, 0.1);
-}
-
-.schedule-badge {
-  min-width: 180px;
-  flex-shrink: 0;
-}
-
-.schedule-desc {
-  flex: 1;
-  color: #94a3b8;
-  font-size: 0.85rem;
-  line-height: 1.4;
-}
-
-@media (max-width: 640px) {
-  .schedule-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-}
-
-/* Cartões com Vidro Escuro */
+/* Cartões com mais espaço interno */
 .glass {
   background-color: var(--card-bg) !important;
   border: 1px solid var(--border-subtle) !important;
   border-radius: 1rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
   transition: all 0.3s ease-in-out;
+  padding: 1.25rem !important;
 }
 
 .glass:hover {
@@ -71,42 +38,47 @@ html, body {
   transform: translateY(-3px);
 }
 
-.gradient-text {
-  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
+/* Tags com mais respiro */
 .tech-tag {
   display: inline-block;
-  padding: 0.3rem 0.75rem;
-  font-size: 0.75rem;
+  padding: 0.45rem 0.9rem !important;
+  margin: 0.2rem !important;
+  font-size: 0.8rem;
   font-weight: 600;
   border-radius: 9999px;
   background: rgba(56, 189, 248, 0.12);
   border: 1px solid rgba(56, 189, 248, 0.25);
   color: #38bdf8;
+  line-height: 1.2;
 }
 
+/* Botões com mais espaço para clique */
 .btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   background: linear-gradient(135deg, #0284c7, #4f46e5);
   color: #ffffff !important;
   font-weight: 600;
-  padding: 0.75rem 1.25rem;
+  padding: 0.85rem 1.6rem !important;
   border-radius: 0.75rem;
+  transition: all 0.3s ease;
 }
 
 .btn-ghost {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-subtle);
   color: #f1f5f9 !important;
-  padding: 0.75rem 1.25rem;
+  padding: 0.85rem 1.6rem !important;
   border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
